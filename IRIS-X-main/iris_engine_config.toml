@@ -1,0 +1,33 @@
+[engine]
+name = "IRIS-MX Unified Native Voice Engine"
+version = "2.4.0-RELEASE"
+environment = "production"
+
+[audio]
+sample_rate = 44100
+channels = 1
+frame_size = 512
+fft_size = 1024
+vad_energy_threshold_db = -42.0
+
+[cpp_ndk]
+lib_name = "iris_native_engine"
+max_direct_buffer_pool_mb = 64
+vector_simd_enabled = true
+thread_affinity = [0, 1, 2]
+
+[rust_core]
+enable_simd_vad = true
+mel_filterbank_bands = 80
+quantization_bitrate = 16
+
+[go_gateway]
+websocket_port = 8088
+grpc_port = 50051
+max_concurrent_streams = 1000
+
+[neural_models]
+asr_model_path = "models/iris_conformer_asr_v1.onnx"
+beam_width = 8
+lm_weight = 0.75
+word_score = -0.25

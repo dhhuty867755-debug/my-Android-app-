@@ -1,0 +1,14 @@
+platform :ios, '15.1'
+
+target 'IRIS-MX' do
+  use_frameworks!
+
+  pod 'React', :path => '../node_modules/react-native/'
+  pod 'React-Core', :path => '../node_modules/react-native/'
+  pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text'
+  pod 'React-RCTImage', :path => '../node_modules/react-native/Libraries/Image'
+
+  target 'IRIS-MXTests' do
+    inherit! :search_paths
+  end
+end

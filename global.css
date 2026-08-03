@@ -1,0 +1,45 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+@theme {
+  --font-antonio-bold: "Antonio-Bold";
+  --font-antonio-medium: "Antonio-Medium";
+  --font-antonio-regular: "Antonio-Regular";
+  --font-antonio-semibold: "Antonio-SemiBold";
+
+  --font-outfit-extralight: "Outfit-ExtraLight";
+  --font-outfit-light: "Outfit-Light";
+  --font-outfit-medium: "Outfit-Medium";
+  --font-outfit-regular: "Outfit-Regular";
+  --font-outfit-semibold: "Outfit-SemiBold";
+  --font-outfit-thin: "Outfit-Thin";
+
+  --color-primary: #02c944;
+  --color-background: #000000;
+  --color-card: #0a0a0a;
+  --color-card-2: #080808;
+  --color-muted: #285c37;
+  --color-main: #00ff55;
+
+  --animate-ripple-1: sonarRipple 2s ease-out infinite;
+  --animate-ripple-2: sonarRipple 2s ease-out infinite 0.8s;
+  --animate-ripple-3: sonarRipple 2s ease-out infinite 1.5s;
+}
+
+@keyframes sonarRipple {
+  0% {
+    border-color: rgba(0, 255, 85, 0.6);
+    background-color: rgba(0, 255, 85, 0.08);
+  }
+  100% {
+    border-color: rgba(0, 255, 85, 0.05);
+    background-color: transparent;
+  }
+}
+
+html {
+  background: #080808;
+}

@@ -1,0 +1,18 @@
+[package]
+name = "iris_core_audio"
+version = "0.1.0"
+edition = "2021"
+authors = ["IRIS-X Core Team <dev@irisx.ai>"]
+description = "SIMD-accelerated low-latency Rust audio DSP and Voice Activity Detection (VAD) core."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+tokio = { version = "1.35", features = ["full"] }
+ndarray = "0.15"
+thiserror = "1.0"
+log = "0.4"
+env_logger = "0.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"

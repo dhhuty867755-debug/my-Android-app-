@@ -1,0 +1,17 @@
+PODS:
+  - Expo (54.0.33)
+  - React (0.81.5)
+  - React-Core (0.81.5)
+  - React-RCTImage (0.81.5)
+  - React-RCTText (0.81.5)
+
+DEPENDENCIES:
+  - Expo (~> 54.0.33)
+  - React (= 0.81.5)
+  - React-Core (= 0.81.5)
+
+SPEC CHECKSUMS:
+  Expo: 890a82b1c4021948ba02
+  React: 1205ab04018241908ab1
+
+COCOAPODS: 1.15.2

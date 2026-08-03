@@ -1,0 +1,11 @@
+{
+  "complianceStandard": "SOC2_TYPE_II_AND_ISO27001",
+  "auditDate": "2026-07-31",
+  "checklist": {
+    "zeroTrustVoiceprintAuth": "PASSED",
+    "androidKeyStoreHsmEncryption": "PASSED",
+    "tls13WebSocketTransport": "PASSED",
+    "memoryBufferSanitization": "PASSED",
+    "leastPrivilegeAccessControl": "PASSED"
+  }
+}

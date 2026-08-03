@@ -1,0 +1,14 @@
+{
+  "flags": {
+    "ENABLE_CPP_NDK_ENGINE": true,
+    "ENABLE_RUST_SIMD_VAD": true,
+    "ENABLE_VULKAN_GPU_COMPUTE": true,
+    "ENABLE_ECHO_CANCELLATION": true,
+    "ENABLE_ZERO_TRUST_HSM": true,
+    "ENABLE_QUANTIZED_LLAMA_3": true
+  },
+  "rolloutPercentages": {
+    "VULKAN_COMPUTE": 100,
+    "RUST_VAD": 100
+  }
+}

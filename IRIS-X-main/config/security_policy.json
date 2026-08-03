@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "securityLevel": "ZERO_TRUST_STRICT",
+  "auth": {
+    "issuer": "https://auth.irisxai.in",
+    "audience": "iris-mobile-app",
+    "supportedAlgorithms": ["RS256", "ES256"],
+    "tokenExpirySeconds": 3600
+  },
+  "voiceprints": {
+    "biometricRequired": true,
+    "minCosineSimilarity": 0.89,
+    "hsmKeyAlias": "IRIS_MASTER_VOICE_KEY"
+  },
+  "rateLimiting": {
+    "requestsPerSecond": 50,
+    "burstCapacity": 100
+  }
+}

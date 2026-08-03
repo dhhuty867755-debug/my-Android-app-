@@ -1,0 +1,10 @@
+{
+  "$schema": "vscode://schemas/settings/folder",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "source.sortMembers": "explicit"
+  },
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "css.lint.unknownAtRules": "ignore"
+}

@@ -1,0 +1,52 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+		/* Begin PBXBuildFile section */
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		/* End PBXBuildFile section */
+
+		/* Begin PBXFileReference section */
+		13B07F961A680F5B00A75B9A /* IRISMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRISMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = IRISMX/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = IRISMX/main.m; sourceTree = "<group>"; };
+		/* End PBXFileReference section */
+
+		/* Begin PBXGroup section */
+		83C354791A7D546700735FE1 = {
+			isa = PBXGroup;
+			children = (
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB71A68108700A75B9A /* main.m */,
+				13B07F961A680F5B00A75B9A /* IRISMX.app */,
+			);
+			sourceTree = "<group>";
+		};
+		/* End PBXGroup section */
+
+		/* Begin PBXNativeTarget section */
+		13B07F861A680F5B00A75B9A /* IRISMX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "IRISMX" */;
+			buildPhases = (
+				13B07F8C1A680F5B00A75B9A /* Sources */,
+				13B07F8E1A680F5B00A75B9A /* Frameworks */,
+				13B07F8F1A680F5B00A75B9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IRISMX;
+			productName = IRISMX;
+			productReference = 13B07F961A680F5B00A75B9A /* IRISMX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		/* End PBXNativeTarget section */
+	};
+	rootObject = 83C354701A7D546700735FE1 /* Project object */;
+}

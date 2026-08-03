@@ -1,0 +1,14 @@
+stages:
+  preprocess_audio:
+    cmd: python scripts/train_acoustic_model.py --epochs 1
+    deps:
+      - scripts/train_acoustic_model.py
+    outs:
+      - models/iris_conformer_asr_v1.onnx
+
+  quantize_llama:
+    cmd: python scripts/quantize_llm_weights.py --bits 4
+    deps:
+      - scripts/quantize_llm_weights.py
+    outs:
+      - models/iris_llama_3_int4.gguf
