@@ -8,25 +8,35 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: android
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: set up JDK 11
+    # ১. Node.js সেটআপ
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    # ২. নোড প্যাকেজ/ডিপেনডেন্সি ইনস্টল
+    - name: Install dependencies
+      run: npm install
+
+    # ৩. Java (JDK) সেটআপ
+    - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
+        java-version: '17'
         distribution: 'temurin'
         cache: gradle
 
+    # ৪. gradlew ফাইলে পারমিশন দেওয়া
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x android/gradlew
 
-    - name: Build with Gradle
-      run: ./gradlew build
+    # ৫. সরাসরি APK (Debug) তৈরি করা
+    - name: Build APK
+      run: |
+        cd android
+        ./gradlew assembleDebug
