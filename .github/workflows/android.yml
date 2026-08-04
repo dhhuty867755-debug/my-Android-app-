@@ -2,54 +2,51 @@ name: Android CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    # ১. Node.js সেটআপ
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
 
-    # ২. ডিপেনডেন্সি ইনস্টল (Legacy Peer Deps সহ)
-    - name: Install dependencies
-      run: npm install --legacy-peer-deps
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
 
-    # ৩. Java (JDK) সেটআপ
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: gradle
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
 
-    # ৪. Gradle Memory & Heap বাড়ানো (ক্র্যাশ আটকানোর জন্য)
-    - name: Configure Gradle Memory
-      run: |
-        mkdir -p ~/.gradle
-        echo "org.gradle.jvmargs=-Xmx4096m -XX:MaxMetaspaceSize=1024m" >> ~/.gradle/gradle.properties
+      - name: Setup Gradle Memory
+        run: |
+          mkdir -p ~/.gradle
+          echo "org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8" >> ~/.gradle/gradle.properties
 
-    # ৫. Execution Permission দেওয়া
-    - name: Grant execute permission for gradlew
-      run: chmod +x android/gradlew
+      - name: Make Gradle Executable
+        run: chmod +x android/gradlew
 
-    # ৬. Clean and Build Debug APK (Stacktrace সহ)
-    - name: Build APK with Gradle
-      run: |
-        cd android
-        ./gradlew clean assembleDebug --stacktrace
+      - name: Build Debug APK
+        working-directory: android
+        run: ./gradlew clean assembleDebug --stacktrace --no-daemon
 
-    # ৭. তৈরি হওয়া APK গিটহাবে আপলোড করা (ডাউনলোড করার জন্য)
-    - name: Upload Debug APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-debug
-        path: android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: android/app/build/outputs/apk/debug/*.apk
